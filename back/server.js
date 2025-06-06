@@ -1,9 +1,10 @@
+const PORT = process.env.BACK_PORT || 3000
+
 const cors = require('cors')
 const express = require('express')
 const bodyParser = require('body-parser')
 
 const app = express()
-const port = 3000
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -11,7 +12,7 @@ app.use(express.static('./static'))
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/api/contacts', (req, res) => {
-    console.log('calling API');
+    console.log('calling API service: /api/contacts');
 
     const body = [
         {id: 1, name: 'Sasha', phone: '1111111111'},
@@ -22,6 +23,6 @@ app.get('/api/contacts', (req, res) => {
     res.status(200).json(body);
 })
 
-app.listen(port, () => {
-    console.log('node app is listening on port: ', port)
+app.listen(PORT, () => {
+    console.log('node app is listening on port: ', PORT)
 })

@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  nginxpocfront:
+    build: .
+    image: nginx-poc-front
+    container_name: nginx-poc-front
+    volumes:
+      - ~/nginx-static-apps/nginx_poc_frontend:/app/dist
+    command: sh -c "echo 'Frontend build done'"

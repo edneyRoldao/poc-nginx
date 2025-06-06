@@ -1,32 +1,26 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
+// import axios from './axios-config'
 import './App.css'
 
 function App() {
-  const [users, setUsers] = useState([])
+  // const [users, setUsers] = useState([])
 
-  useEffect(() => {
-    fetch('http://localhost:3000/api/contacts')
-      .then((resp) => resp.json())
-      .then((json) => setUsers(json))
-      .catch((error) => console.log('error fetching data:', error))
-  }, [])
+  // useEffect(() => {
+  //   axios.get('/contacts').then((res) => setUsers(res.data))
+  // }, [])
 
   return (
     <>
       <h1>Vite + React - Test Nginx</h1>
       <div className="card">
         <h2>Lista de Usuários - API Attack on Titan</h2>
-        {users.length > 0 ? (
-          <ul>
+        {/* <ul>
             {users.map(user => (
-              <li key={user.id}>
-                <strong>{user.name}</strong> - {user.phone}
+              <li key={user['id']}>
+                <strong>{user['name']}</strong> - {user['phone']}
               </li>
             ))}
-          </ul>
-        ) : (
-          <p>Carregando...</p>
-        )}
+          </ul> */}
       </div>
     </>
   )
