@@ -10,21 +10,20 @@ git pull
 
 echo ">>>>> parando os o container do frontend - nginx poc"
 cd ~/workspace/projects/poc-nginx/front
-sudo docker compose down
-sudo sleep 10
+sudo docker-compose down
 
 echo ">>>>> recriando container frontend - nginx poc"
 sudo docker-compose up --build -d
 
-cd ~/workspace/projects/poc-nginx/back
+# cd ~/workspace/projects/poc-nginx/back
 
-echo ">>>>> parando as instancias do backend - nginx poc"
-sudo docker compose down
-sudo sleep 10
+# echo ">>>>> parando as instancias do backend - nginx poc"
+# sudo docker-compose down
+# sudo sleep 10
 
-echo ">>>>> recriando as instancias do backend - nginx poc"
-sudo docker-compose up --build -d
-sudo sleep 10
+# echo ">>>>> recriando as instancias do backend - nginx poc"
+# sudo docker-compose up --build -d
+# sudo sleep 10
 
 # echo ">>>>> atualizando conteudo estatico do frontend no nginx - nginx poc"
 # sudo mv ~/nginx-static-apps/nginx_poc_frontend/* /usr/share/nginx/html
