@@ -21,7 +21,7 @@ docker rm nginx-poc-front
 docker rmi nginx-poc-front-img
 docker-compose up --build -d
 
-sleep 30
+sleep 40
 
 echo ""
 echo "---------------------------------"
@@ -29,7 +29,7 @@ echo ">>>>> atualizando conteudo estatico do frontend no nginx - nginx poc <<<<<
 echo "---------------------------------"
 sudo cp -r ~/nginx-static-apps/nginx_poc_frontend/* /usr/share/nginx/html
 sudo cp ~/workspace/projects/poc-nginx/nginx.conf /etc/nginx
-sudo nginx -s reload
+sudo systemctl restart nginx
 
 echo ""
 echo "---------------------------------"
