@@ -1,7 +1,7 @@
 services:
   nginxpocfront:
     build: .
-    image: nginx-poc-front
+    image: nginx-poc-front-img
     container_name: nginx-poc-front
     volumes:
       - ~/nginx-static-apps/nginx_poc_frontend:/app/dist

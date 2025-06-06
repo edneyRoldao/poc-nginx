@@ -4,32 +4,38 @@ echo "INICIANDO SCRIPT DE ATUALIZACAO BACK e FRONT - nginx poc"
 echo ""
 echo "##########################################################"
 
-echo ">>>>> atualizando repositorio"
+echo ""
+echo "---------------------------------"
+echo ">>>>> atualizando repositorio - - nginx poc <<<<<"
+echo "---------------------------------"
 cd ~/workspace/projects/poc-nginx
 git pull
 
-echo ">>>>> parando os o container do frontend - nginx poc"
+echo ""
+echo "---------------------------------"
+echo ">>>>> recriando container frontend - nginx poc <<<<<"
+echo "---------------------------------"
 cd ~/workspace/projects/poc-nginx/front
 sudo docker-compose down
-
-echo ">>>>> recriando container frontend - nginx poc"
+sudo docker rm nginx-poc-front
+sudo docker rmi nginx-poc-front-img
 sudo docker-compose up --build -d
 
-# cd ~/workspace/projects/poc-nginx/back
+echo ""
+echo "---------------------------------"
+echo ">>>>> recriando as instancias do backend - nginx poc <<<<<"
+echo "---------------------------------"
+cd ~/workspace/projects/poc-nginx/back
+sudo docker-compose down
+sudo docker rmi nginx-poc-back
+sudo docker-compose up --build -d
 
-# echo ">>>>> parando as instancias do backend - nginx poc"
-# sudo docker-compose down
-# sudo sleep 10
+sudo sleep 5
 
-# echo ">>>>> recriando as instancias do backend - nginx poc"
-# sudo docker-compose up --build -d
-# sudo sleep 10
-
-# echo ">>>>> atualizando conteudo estatico do frontend no nginx - nginx poc"
-# sudo mv ~/nginx-static-apps/nginx_poc_frontend/* /usr/share/nginx/html
-
-# echo ">>>>> atualizando arquivo nginx.conf - nginx poc"
-# sudo cp ~/workspace/projects/poc-nginx/nginx.conf /etc/nginx
-
-# echo ">>>>> recarregando NGINX - nginx poc"
-# sudo nginx -s reload
+echo ""
+echo "---------------------------------"
+echo ">>>>> atualizando conteudo estatico do frontend no nginx - nginx poc <<<<<"
+echo "---------------------------------"
+sudo cp -r ~/nginx-static-apps/nginx_poc_frontend/* /usr/share/nginx/html
+sudo cp ~/workspace/projects/poc-nginx/nginx.conf /etc/nginx
+sudo nginx -s reload
