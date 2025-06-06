@@ -4,5 +4,4 @@ services:
     image: nginx-poc-front
     container_name: nginx-poc-front
     volumes:
-      - /home/edney/nginx-static-apps/nginx_poc_frontend/dist:/app/dist
-      
+      - ~/nginx-static-apps/nginx_poc_frontend/dist:/app/dist
