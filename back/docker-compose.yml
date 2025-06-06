@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   nginxpocbackreplica1:
     build: .
@@ -10,15 +8,14 @@ services:
     ports:
       - "3001:3000"
   nginxpocbackreplica2:
-    image: nginx-poc
+    image: nginx-poc-back
     container_name: nginx-poc-backreplica2
     environment:
       - APP_NAME=nginx-poc-backreplica2
     ports:
       - "3002:3000"
   nginxpocbackreplica3:
-    build: .
-    image: nginx-poc
+    image: nginx-poc-back
     container_name: nginx-poc-backreplica3
     environment:
       - APP_NAME=nginx-poc-backreplica3
