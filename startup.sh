@@ -4,9 +4,12 @@ echo "INICIANDO SCRIPT DE ATUALIZACAO BACK e FRONT - nginx poc"
 echo ""
 echo "##########################################################"
 
-cd ~/workspace/projects/poc-nginx/front
+echo ">>>>> atualizando repositorio"
+cd ~/workspace/projects/poc-nginx
+git pull
 
 echo ">>>>> parando os o container do frontend - nginx poc"
+cd ~/workspace/projects/poc-nginx/front
 sudo docker compose down
 sudo sleep 10
 
