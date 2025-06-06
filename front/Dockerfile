@@ -6,6 +6,5 @@ COPY package*.json ./
 RUN npm install
 
 COPY . .
-RUN npm run build
 
-CMD ["sh", "-c", "echo 'Use docker cp or volumes to access /app/dist'"]
+CMD ["npm", "run", "build"]

@@ -5,4 +5,4 @@ services:
     container_name: nginx-poc-front
     volumes:
       - /home/edney/nginx-static-apps/nginx_poc_frontend/dist:/app/dist
-    command: sh -c "echo 'Frontend build done'"
+      
