@@ -1,0 +1,12 @@
+services:
+  mysqlsrv:
+    image: mysql:8.0
+    container_name: "mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "1qaz@WSX"
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ~/database/mysql/data:/var/lib/mysql
